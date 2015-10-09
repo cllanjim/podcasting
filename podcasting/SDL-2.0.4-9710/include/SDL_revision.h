@@ -1,0 +1,2 @@
+#define SDL_REVISION "hg-9710:38ca9a2dd2ef"
+#define SDL_REVISION_NUMBER 9710

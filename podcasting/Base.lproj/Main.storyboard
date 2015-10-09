@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sOv-N6-8Eh">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4KX-w9-uxf">
+            <objects>
+                <tabBarController id="sOv-N6-8Eh" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Q9N-oQ-gDp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="LbI-4w-4R5"/>
+                        <segue destination="5TT-Z4-UAS" kind="relationship" relationship="viewControllers" id="qzt-k3-mDt"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XQH-y3-4qZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-758" y="-77"/>
+        </scene>
+        <!--主播-->
+        <scene sceneID="K2T-PA-oVa">
+            <objects>
+                <tableViewController id="WlS-G7-4Cy" customClass="TVIndexViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Wjb-Wg-J0g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0BK-Q9-rDu">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0BK-Q9-rDu" id="5YZ-Gf-4bc">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="OT9-hf-K5g" kind="show" identifier="player" id="VJS-GW-dDG"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="WlS-G7-4Cy" id="xfG-3F-PY5"/>
+                            <outlet property="delegate" destination="WlS-G7-4Cy" id="NV9-IG-Oex"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="主播" id="ghg-AB-rSY"/>
+                    <navigationItem key="navigationItem" id="sO2-3q-oj7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hAH-rR-4TC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="834" y="-734"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="N1V-he-C88">
+            <objects>
+                <viewController id="OT9-hf-K5g" customClass="TVViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vAa-YX-dIV"/>
+                        <viewControllerLayoutGuide type="bottom" id="rFA-5a-oWu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mUx-3s-75e">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dg-f4-IpP">
+                                <rect key="frame" x="142" y="285" width="60" height="30"/>
+                                <state key="normal" title="停止播放">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopPlay:" destination="OT9-hf-K5g" eventType="touchUpInside" id="4H8-pt-wwa"/>
+                                    <action selector="stopPlay:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Vl5-Lu-tfE"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TML-8L-7td" customClass="VideoRenderIosView">
+                                <rect key="frame" x="0.0" y="72" width="392" height="167"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ia-ML-QPL">
+                                <rect key="frame" x="40" y="285" width="30" height="30"/>
+                                <state key="normal" title="播放">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startPlay:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HbS-BU-00O"/>
+                                    <action selector="startPlay:" destination="OT9-hf-K5g" eventType="touchUpInside" id="snK-zI-dW7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="renderView" destination="TML-8L-7td" id="cjz-EL-aPV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MYC-Sa-gwX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533" y="-734"/>
+        </scene>
+        <!--主播-->
+        <scene sceneID="KAb-yn-xh8">
+            <objects>
+                <navigationController id="5TT-Z4-UAS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="主播" id="3JY-Ya-SHa"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="41b-Ba-22n">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WlS-G7-4Cy" kind="relationship" relationship="rootViewController" id="o3g-8Q-1uE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLr-cu-6ir" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="144" y="-734"/>
+        </scene>
+        <!--直播-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxC-HO-pyp">
+                                <rect key="frame" x="218" y="386" width="136" height="30"/>
+                                <state key="normal" title="停止录制">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startCapture:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hbw-N8-FwO"/>
+                                    <action selector="stopCapture:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kkJ-lf-uuo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eoc-zN-cuT">
+                                <rect key="frame" x="40" y="386" width="30" height="30"/>
+                                <state key="normal" title="录制">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startCapture:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XYd-cW-Lbf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="直播" id="sam-OU-qir"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96" y="294"/>
+        </scene>
+    </scenes>
+</document>
