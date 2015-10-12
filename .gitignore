@@ -1,2 +1,6 @@
 *~
 xcuserdata
+xcshareddata
+.DS_Store
+ffmpeg
+x264
